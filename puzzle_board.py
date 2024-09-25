@@ -1,5 +1,5 @@
 class PuzzleBoard:
-    __grid: list[list[str]]
+    __spaced_grid: list[list[str]]
 
     def __init__(self, letters_csv: str):
         """
@@ -7,7 +7,7 @@ class PuzzleBoard:
         :param letters_csv: Grid in the form of a comma separated list, where each value is the characters in a row.
         Example: xyz,abc,pqr
         """
-        self.__grid = []
+        self.__spaced_grid = []
 
         rows = letters_csv.split(',')
         if len(rows) != 8:
@@ -17,11 +17,11 @@ class PuzzleBoard:
                 raise ValueError(f"Expected 6 letters in row, got {len(row)} (row = {row}).")
 
             spaced_row = '   '.join(row)
-            self.__grid.append([char.upper() for char in spaced_row])
-            self.__grid.append([' ' for _ in range(21)])
+            self.__spaced_grid.append([char.upper() for char in spaced_row])
+            self.__spaced_grid.append([' ' for _ in range(21)])
 
-        self.__grid = self.__grid[:-1]
+        self.__spaced_grid = self.__spaced_grid[:-1]
 
     def pretty_print(self) -> None:
-        for row in self.__grid:
+        for row in self.__spaced_grid:
             print(''.join(row))
