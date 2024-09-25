@@ -1,5 +1,15 @@
+from dataclasses import dataclass
+
+
 class PuzzleBoard:
     __spaced_grid: list[list[str]]
+
+    @dataclass
+    class Node:
+        row: int
+        col: int
+        letter: str
+        neighbours: tuple[int, int]
 
     def __init__(self, letters_csv: str):
         """
