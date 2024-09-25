@@ -1,0 +1,1 @@
+NYT Strands Puzzle Solver
